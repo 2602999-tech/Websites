@@ -1723,7 +1723,6 @@ export default function App() {
             const box = BITS[b.bit];
             const spr = sprStyle(box, 0);
             const aspect = box[3] / box[2];
-            const mult = typeof window !== 'undefined' && window.innerWidth < 820 ? 1.3 : 1;
             return (
               <div
                 key={i}
@@ -1734,8 +1733,8 @@ export default function App() {
                 style={{
                   left: `${b.xFrac * 100}%`,
                   top: `${b.yFrac * 100}%`,
-                  width: `calc(${b.sizeU * mult} * var(--u))`,
-                  height: `calc(${b.sizeU * mult * aspect} * var(--u))`,
+                  width: `calc(${b.sizeU} * var(--bm) * var(--u))`,
+                  height: `calc(${b.sizeU * aspect} * var(--bm) * var(--u))`,
                   transform: `translate(-50%, -50%) rotate(${b.rot}deg)`,
                   backgroundSize: spr.backgroundSize,
                   backgroundPosition: spr.backgroundPosition,
